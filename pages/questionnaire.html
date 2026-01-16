@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История на България - Въпросник Игра</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/questionnaire.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar-kiddy">
+        <div class="nav-container-kiddy">
+            <div class="nav-logo-kiddy">
+                <span class="nav-link-kiddy" onclick="window.location.href='../index.html'">← Начало</span>
+            </div>
+            <div class="logo-box-kiddy">
+                <div class="logo-text-kiddy">ВЪПРОСНИК</div>
+            </div>
+            <div class="nav-links-kiddy">
+                <span class="nav-link-kiddy" onclick="window.location.href='../index.html'">Уроци</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="questionnaire-page-kiddy">
+    <div class="questionnaire-container-kiddy">
+        <!-- Start Screen -->
+        <div id="startScreen" class="questionnaire-screen active">
+            <div class="start-content">
+                <h1><i class="fas fa-gamepad"></i> История на България - Въпросник</h1>
+                <p>Тествай своите знания за историята на нашата страна!</p>
+                
+                <div class="difficulty-selection">
+                    <h2>Избери ниво на трудност:</h2>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" onclick="startQuiz('easy')">
+                            <i class="fas fa-leaf"></i>
+                            <span>Лесно</span>
+                            <small>10 въпроса</small>
+                        </button>
+                        <button class="difficulty-btn" onclick="startQuiz('medium')">
+                            <i class="fas fa-fire"></i>
+                            <span>Средно</span>
+                            <small>15 въпроса</small>
+                        </button>
+                        <button class="difficulty-btn" onclick="startQuiz('hard')">
+                            <i class="fas fa-skull"></i>
+                            <span>Трудно</span>
+                            <small>20 въпроса</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="quiz-info">
+                    <div class="info-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Обучаващо</h3>
+                        <p>Научи интересни факти</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map"></i>
+                        <h3>С Карти</h3>
+                        <p>Вижте географски преживявания</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Награди</h3>
+                        <p>Събирай точки и отличия</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questionnaire Screen -->
+        <div id="questionnaireScreen" class="questionnaire-screen">
+            <div class="questionnaire-progress">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="progress-info">
+                    <span id="questionCounter">Въпрос 1 от 10</span>
+                    <span id="scoreDisplay">Точки: 0</span>
+                </div>
+            </div>
+
+            <div class="questionnaire-content">
+                <div id="mapContainer" class="map-container-questionnaire" style="display: none;">
+                    <div id="questionnaireMap"></div>
+                </div>
+
+                <div class="question-section">
+                    <h2 id="questionText"></h2>
+                    
+                    <div class="answers-grid" id="answersGrid">
+                        <!-- Answers will be generated here -->
+                    </div>
+                </div>
+
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="showHint()" id="hintBtn">
+                        <i class="fas fa-lightbulb"></i> Подсказка
+                    </button>
+                    <div id="hintText" class="hint-text" style="display: none;"></div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary" onclick="quitQuestionnaire()" style="margin-top: 2rem;">Напусни</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="questionnaire-screen">
+            <div class="results-content">
+                <h1>Резултати</h1>
+                
+                <div class="score-circle">
+                    <div class="score-display">
+                        <span class="final-score" id="finalScore">0</span>
+                        <span class="total-score">/ 100</span>
+                    </div>
+                </div>
+
+                <div class="grade-section">
+                    <h2 id="gradeTitle">Браво!</h2>
+                    <p id="gradeMessage">Отличен резултат!</p>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="correctAnswers">0</span>
+                        <p>Верни отговори</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span id="wrongAnswers">0</span>
+                        <p>Неверни отговори</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-percent"></i>
+                        <span id="percentage">0</span>%
+                        <p>Процент</p>
+                    </div>
+                </div>
+
+                <div class="results-review">
+                    <h3>Преглед на отговорите</h3>
+                    <div id="reviewContainer" class="review-list">
+                        <!-- Review items will be generated here -->
+                    </div>
+                </div>
+
+                <div class="results-buttons">
+                    <button class="btn btn-primary" onclick="retryQuestionnaire()">
+                        <i class="fas fa-redo"></i> Опитай отново
+                    </button>
+                    <button class="btn btn-secondary" onclick="changeDifficulty()">
+                        <i class="fas fa-exchange-alt"></i> Друго ниво
+                    </button>
+                    <button class="btn btn-secondary" onclick="goHome()">
+                        <i class="fas fa-home"></i> На начало
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/questionnaire.js"></script>
+</body>
+</html>

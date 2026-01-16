@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История на България - за молодежта</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar-kiddy">
+        <div class="nav-container-kiddy">
+            <div class="nav-logo-kiddy">
+                <span class="nav-link-kiddy">Начало</span>
+                <span class="nav-link-kiddy">Уроци</span>
+                <span class="nav-link-kiddy">Въпросник</span>
+            </div>
+            <div class="logo-box-kiddy">
+                <div class="logo-text-kiddy">ИСТОРИЯ</div>
+            </div>
+            <div class="nav-links-kiddy">
+                <span class="nav-link-kiddy">За сайта</span>
+                <span class="nav-link-kiddy">Контакт</span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-kiddy">
+        <div class="sky-background">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="sun"></div>
+            <div class="rainbow"></div>
+        </div>
+        
+        <div class="hero-content-kiddy">
+            <h1 class="hero-title-kiddy">Добре дошли в<br>ИСТОРИЯ НА БЪЛГАРИЯ!</h1>
+            <p class="hero-subtitle-kiddy">Идеално място за млади хора да разберат историята на своята нация</p>
+        </div>
+
+        <div class="sand-waves"></div>
+    </section>
+
+    <section class="features-section">
+        <div class="container-kiddy">
+            <div class="feature-card-kiddy">
+                <div class="feature-icon-kiddy">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Уроци</h3>
+                <p>Наш сайт предлага много образователни уроци за разбиране на историята на България. Когато учите история, развивате критическото мислене!</p>
+                <button class="btn-more-kiddy" onclick="window.location.href='pages/lesson-ancient.html'">Вижте повече</button>
+            </div>
+
+            <div class="feature-card-kiddy">
+                <div class="feature-icon-kiddy">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Въпросник</h3>
+                <p>Вземи участие в нашия интерактивен въпросник и тества своите знания. Съчетали сме приятното с полезното!</p>
+                <button class="btn-more-kiddy" onclick="window.location.href='pages/questionnaire.html'">Вижте повече</button>
+            </div>
+
+            <div class="feature-card-kiddy">
+                <div class="feature-icon-kiddy">
+                    <i class="fas fa-map"></i>
+                </div>
+                <h3>Карти</h3>
+                <p>Всеки урок съдържа интерактивни карти. Те помагат визуално да разберете както географията, така и историята на България.</p>
+                <button class="btn-more-kiddy" onclick="window.location.href='pages/lesson-ancient.html'">Вижте повече</button>
+            </div>
+        </div>
+    </features-section>
+
+    <section id="lessons" class="lessons-section-kiddy">
+        <div class="container-kiddy">
+            <h2 class="section-title-kiddy">🎓 Уроци по история</h2>
+            <div class="lessons-grid-kiddy">
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-ancient.html'">
+                    <div class="card-number">1</div>
+                    <h3>Древна България</h3>
+                    <p>Траки и ранна история</p>
+                </div>
+
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-boris.html'">
+                    <div class="card-number">2</div>
+                    <h3>Княз Борис Първи</h3>
+                    <p>Покръстителят на България</p>
+                </div>
+
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-cyril-methodius.html'">
+                    <div class="card-number">3</div>
+                    <h3>Кирил и Методий</h3>
+                    <p>Създатели на азбуката</p>
+                </div>
+
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-simeon-great.html'">
+                    <div class="card-number">4</div>
+                    <h3>Цар Симеон Великия</h3>
+                    <p>Золотия век на България</p>
+                </div>
+
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-medieval.html'">
+                    <div class="card-number">5</div>
+                    <h3>Средновековна България</h3>
+                    <p>Първо и Второ царство</p>
+                </div>
+
+                <div class="lesson-card-kiddy" onclick="window.location.href='pages/lesson-ottoman.html'">
+                    <div class="card-number">6</div>
+                    <h3>Османски период</h3>
+                    <p>500 години съпротива</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section-kiddy">
+        <div class="container-kiddy">
+            <h2 class="section-title-kiddy">📖 Кои сме ние?</h2>
+            <div class="about-intro-kiddy">
+                <p>Този образователен сайт е създаден със сърце и професионализъм специално за учениците на <strong>Българско училище в град Пафос</strong> и техните семейства. Ние вярваме, че <strong>българското образование няма граници</strong>, независимо где по света живеят нашите деца.</p>
+                <div class="about-highlight">
+                    <p><strong>Знанието за България трябва да бъде живо, разбираемо и близко до детския свят! 🇧🇬</strong></p>
+                </div>
+                <button class="btn-about-kiddy" onclick="window.location.href='pages/about.html'">Узнайте повече за нас →</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 История на България - Образователен сайт за младежта</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
